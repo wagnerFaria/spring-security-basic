@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import static com.alibou.security.user.Role.ADMIN;
@@ -21,6 +22,7 @@ public class SecurityApplication {
 	}
 
 	@Bean
+	@Profile("!prod")
 	public CommandLineRunner commandLineRunner(
 			AuthenticationService service
 	) {
@@ -35,8 +37,8 @@ public class SecurityApplication {
 			System.out.println("Admin token: " + service.register(admin).getAccessToken());
 
 			var manager = RegisterRequest.builder()
-					.firstname("Admin")
-					.lastname("Admin")
+					.firstname("Manager")
+					.lastname("Manager")
 					.email("manager@mail.com")
 					.password("password")
 					.role(MANAGER)
