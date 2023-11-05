@@ -22,7 +22,7 @@ public class SecurityApplication {
 	}
 
 	@Bean
-	@Profile("!prod")
+	@Profile("!prod&&!test")
 	public CommandLineRunner commandLineRunner(
 			AuthenticationService service
 	) {
