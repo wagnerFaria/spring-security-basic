@@ -41,3 +41,45 @@ databaseChangeLog:
                   type: varchar
                   constraints:
                     nullable: false
+  - changeSet:
+      id: INSERT_USERS
+      author: wagner
+      changes:
+        - insert:
+            schemaName: public
+            tableName: _user
+            columns:
+              - column:
+                  name: email
+                  value: "admin@mail.com"
+              - column:
+                  name: firstname
+                  value: "Admin"
+              - column:
+                  name: lastname
+                  value: "Admin"
+              - column:
+                  name: password
+                  value: "$2a$10$BUFE1wEYqmffEW2XS86D6O04YWnM7WDDoW/yxfOsJB5CxSSPIbfum" # password: admin
+              - column:
+                  name: role
+                  value: "ADMIN"
+        - insert:
+            schemaName: public
+            tableName: _user
+            columns:
+              - column:
+                  name: email
+                  value: "manager@mail.com"
+              - column:
+                  name: firstname
+                  value: "Manager"
+              - column:
+                  name: lastname
+                  value: "Manager"
+              - column:
+                  name: password
+                  value: "$2a$10$Yzwko0OK9DqfRZocI6rc1.ahpomze8V81ppSQ67scpzHq4SS/ol22" # password: manager
+              - column:
+                  name: role
+                  value: "MANAGER"
