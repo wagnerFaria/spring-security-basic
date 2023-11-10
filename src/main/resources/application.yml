@@ -3,4 +3,4 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.yaml
   profiles:
     active:
-      - test
+      - dev
