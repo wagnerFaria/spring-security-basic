@@ -1,5 +1,6 @@
 package com.security.utils;
 
+import com.security.user.Role;
 import com.security.user.User;
 
 public class UserTestUtils {
@@ -11,6 +12,17 @@ public class UserTestUtils {
                 .firstname("User")
                 .lastname("Test")
                 .email("usertest@gamil.com")
+                .build();
+    }
+
+    public static User returnPersistedUser() {
+        return User
+                .builder()
+                .id(1)
+                .firstname("User")
+                .lastname("User")
+                .email("user-test@mail.com")
+                .role(Role.USER)
                 .build();
     }
 }
