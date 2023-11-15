@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.test.context.support.WithUserDetails;
+import org.springframework.web.server.ResponseStatusException;
 
 @SpringBootTest
 class UserServiceTest {
@@ -51,7 +52,7 @@ class UserServiceTest {
 
         Assertions
                 .assertThatThrownBy(() -> userService.changePassword(request, authentication))
-                .isInstanceOf(IllegalStateException.class);
+                .isInstanceOf(ResponseStatusException.class);
     }
 
     @Test
@@ -71,6 +72,6 @@ class UserServiceTest {
 
         Assertions
                 .assertThatThrownBy(() -> userService.changePassword(request, authentication))
-                .isInstanceOf(IllegalStateException.class);
+                .isInstanceOf(ResponseStatusException.class);
     }
 }
