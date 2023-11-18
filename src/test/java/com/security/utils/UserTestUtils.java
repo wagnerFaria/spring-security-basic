@@ -12,6 +12,7 @@ public class UserTestUtils {
                 .firstname("User")
                 .lastname("Test")
                 .email("usertest@gamil.com")
+                .role(Role.USER)
                 .build();
     }
 
